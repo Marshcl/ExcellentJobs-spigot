@@ -86,6 +86,19 @@ public class SourceTable implements Writeable {
     }
 
     @NotNull
+    public GrindReward rollForNameOrDefault(@NotNull String name) {
+        GrindReward reward = new GrindReward();
+
+        SourceReward sourceReward = this.getEntry(name);
+        if (sourceReward == null) {
+            SourceReward defValue = this.getEntry(Placeholders.DEFAULT);
+            return defValue == null ? reward : reward.add(defValue.roll());
+        }
+
+        return sourceReward.roll();
+    }
+
+    @NotNull
     public <O> GrindReward rollForEntity(@NotNull O entity, @NotNull GrindAdapterFamily<O> family) {
         GrindReward reward = new GrindReward();
         this.getEntries(entity, family).forEach(other -> reward.add(other.roll()));
@@ -252,7 +265,7 @@ public class SourceTable implements Writeable {
             double moneyMinScaled = moneyMin * this.scale;
             double moneyMaxScaled = moneyMax * this.scale;
 
-            this.entires.put(fullName, new SourceReward(UniDouble.of(xpMinScaled, xpMaxScaled), UniDouble.of(moneyMinScaled, moneyMaxScaled), chance));
+            this.entires.put(fullName, new SourceReward(UniDouble.of(xpMinScaled, xpMaxScaled).asInt(), UniDouble.of(moneyMinScaled, moneyMaxScaled), chance));
             return this;
         }
     }

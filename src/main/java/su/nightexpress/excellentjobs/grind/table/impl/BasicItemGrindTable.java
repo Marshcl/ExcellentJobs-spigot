@@ -33,11 +33,15 @@ public class BasicItemGrindTable implements GrindTable {
     public GrindReward getItemXP(@NotNull ItemStack itemStack, int units) {
         GrindReward reward = new GrindReward();
 
-        // Simulate random xp & money for each crafted unit, as if it was crafted one by one.
         for (int i = 0; i < units; i++) {
             reward.add(this.itemsTable.rollForEntityOrDefault(itemStack, GrindAdapterFamily.ITEM));
         }
 
         return reward;
+    }
+
+    @NotNull
+    public GrindReward getItemXP(@NotNull String name) {
+        return this.itemsTable.rollForNameOrDefault(name);
     }
 }

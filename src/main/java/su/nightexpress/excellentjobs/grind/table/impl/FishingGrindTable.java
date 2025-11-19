@@ -4,11 +4,11 @@ import org.bukkit.entity.Entity;
 import org.bukkit.entity.Item;
 import org.jetbrains.annotations.NotNull;
 import su.nightexpress.excellentjobs.grind.GrindReward;
-import su.nightexpress.nightcore.config.ConfigValue;
-import su.nightexpress.nightcore.config.FileConfig;
 import su.nightexpress.excellentjobs.grind.adapter.GrindAdapterFamily;
 import su.nightexpress.excellentjobs.grind.table.GrindTable;
 import su.nightexpress.excellentjobs.grind.table.SourceTable;
+import su.nightexpress.nightcore.config.ConfigValue;
+import su.nightexpress.nightcore.config.FileConfig;
 
 public class FishingGrindTable implements GrindTable {
 

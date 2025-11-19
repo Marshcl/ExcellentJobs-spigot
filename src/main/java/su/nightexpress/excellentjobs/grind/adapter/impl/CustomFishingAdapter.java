@@ -1,15 +1,9 @@
 package su.nightexpress.excellentjobs.grind.adapter.impl;
 
-import net.momirealms.customfishing.api.BukkitCustomFishingPlugin;
-import net.momirealms.customfishing.api.mechanic.loot.Loot;
-import org.bukkit.inventory.ItemStack;
-import org.jetbrains.annotations.NotNull;
-import org.jetbrains.annotations.Nullable;
-import su.nightexpress.excellentjobs.grind.adapter.AbstractGrindAdapter;
+@Deprecated
+public class CustomFishingAdapter /*extends AbstractGrindAdapter<Loot, ItemStack>*/ {
 
-public class CustomFishingAdapter extends AbstractGrindAdapter<Loot, ItemStack> {
-
-    public CustomFishingAdapter(@NotNull String name) {
+    /*public CustomFishingAdapter(@NotNull String name) {
         super(name);
     }
 
@@ -48,5 +42,5 @@ public class CustomFishingAdapter extends AbstractGrindAdapter<Loot, ItemStack> 
     @NotNull
     public String toFullNameOfType(@NotNull Loot loot) {
         return "customfishing:" + super.toFullNameOfType(loot);
-    }
+    }*/
 }

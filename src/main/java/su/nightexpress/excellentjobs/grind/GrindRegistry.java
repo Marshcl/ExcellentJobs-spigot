@@ -31,7 +31,7 @@ public class GrindRegistry extends AbstractManager<JobsPlugin> {
     }
 
     public <T extends GrindType<?>> void registerGrindType(@NotNull T type) {
-        this.grindTypeByIdMap.put(type.getId(), type);
+        this.grindTypeByIdMap.putIfAbsent(type.getId(), type);
     }
 
     @Nullable

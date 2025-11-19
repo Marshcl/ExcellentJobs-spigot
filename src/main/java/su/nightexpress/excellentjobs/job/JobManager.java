@@ -39,6 +39,7 @@ import su.nightexpress.nightcore.util.*;
 import su.nightexpress.nightcore.util.time.TimeFormatType;
 import su.nightexpress.nightcore.util.time.TimeFormats;
 import su.nightexpress.nightcore.util.wrapper.UniDouble;
+import su.nightexpress.nightcore.util.wrapper.UniInt;
 
 import java.io.File;
 import java.io.IOException;
@@ -220,7 +221,7 @@ public class JobManager extends AbstractManager<JobsPlugin> {
                 Map<String, SourceReward> convertedEntries = converteds.computeIfAbsent(newId, k -> new LinkedHashMap<>());
 
                 objects.forEach(entryName -> {
-                    UniDouble xpConverted = UniDouble.of(xpLegacy.min(), xpLegacy.max());
+                    UniInt xpConverted = UniDouble.of(xpLegacy.min(), xpLegacy.max()).asInt();
                     UniDouble moneyConverted = UniDouble.of(moneyLegacy.min(), moneyLegacy.max());
                     SourceReward convertedReward = new SourceReward(xpConverted, moneyConverted, moneyLegacy.chance());
 

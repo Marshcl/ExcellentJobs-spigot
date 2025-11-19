@@ -9,6 +9,7 @@ import org.bukkit.inventory.ItemStack;
 import org.bukkit.metadata.FixedMetadataValue;
 import org.jetbrains.annotations.NotNull;
 import org.jetbrains.annotations.Nullable;
+import su.nightexpress.excellentjobs.hook.HookPlugin;
 import su.nightexpress.nightcore.bridge.currency.Currency;
 import su.nightexpress.excellentjobs.JobsAPI;
 import su.nightexpress.excellentjobs.JobsPlugin;
@@ -38,6 +39,7 @@ import su.nightexpress.excellentjobs.util.JobUtils;
 import su.nightexpress.nightcore.integration.currency.EconomyBridge;
 import su.nightexpress.nightcore.manager.AbstractManager;
 import su.nightexpress.nightcore.util.PDCUtil;
+import su.nightexpress.nightcore.util.Plugins;
 import su.nightexpress.nightcore.util.blocktracker.PlayerBlockTracker;
 
 public class GrindManager extends AbstractManager<JobsPlugin> {
@@ -93,6 +95,10 @@ public class GrindManager extends AbstractManager<JobsPlugin> {
         this.registerGrindType(GrindTypeId.FISHING, FishingGrindType::new, FishingGrindListener::new);
         this.registerGrindType(GrindTypeId.GATHERING, GatheringGrindType::new, GatheringGrindListener::new);
         this.registerGrindType(GrindTypeId.MINING, MiningGrindType::new, MiningGrindListener::new);
+
+        if (Plugins.isInstalled(HookPlugin.CUSTOM_FISHING)) {
+            this.registerGrindType("custom_fishing", CustomFishingGrindType::new, CustomFishingGrindListener::new);
+        }
     }
 
     public <E extends GrindTable, T extends GrindType<E>> void registerGrindType(@NotNull String id,

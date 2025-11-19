@@ -5,6 +5,7 @@ import su.nightexpress.excellentjobs.grind.GrindReward;
 import su.nightexpress.nightcore.util.NumberUtil;
 import su.nightexpress.nightcore.util.random.Rnd;
 import su.nightexpress.nightcore.util.wrapper.UniDouble;
+import su.nightexpress.nightcore.util.wrapper.UniInt;
 
 public class SourceReward {
 
@@ -13,19 +14,19 @@ public class SourceReward {
 
     public static final double MAX_CHANCE = 100D;
 
-    private final UniDouble xpAmount;
+    private final UniInt    xpAmount;
     private final UniDouble moneyAmount;
-    private final double chance;
+    private final double    chance;
 
-    public SourceReward(@NotNull UniDouble xpAmount, @NotNull UniDouble moneyAmount, double chance) {
+    public SourceReward(@NotNull UniInt xpAmount, @NotNull UniDouble moneyAmount, double chance) {
         this.xpAmount = xpAmount;
         this.moneyAmount = moneyAmount;
         this.chance = chance;
     }
 
     @NotNull
-    public static SourceReward maxChance(double xp, double money) {
-        return new SourceReward(UniDouble.of(xp, xp), UniDouble.of(money, money), MAX_CHANCE);
+    public static SourceReward maxChance(int xp, double money) {
+        return new SourceReward(UniInt.of(xp, xp), UniDouble.of(money, money), MAX_CHANCE);
     }
 
     @NotNull
@@ -36,7 +37,7 @@ public class SourceReward {
         String moneyRaw = sections.length >= 2 ? sections[1] : "";
         double chance = sections.length >= 3 ? NumberUtil.getDoubleAbs(sections[2]) : MAX_CHANCE;
 
-        UniDouble xpAmount = parseAmount(xpRaw);
+        UniInt xpAmount = parseAmount(xpRaw).asInt();
         UniDouble moneyAmount = parseAmount(moneyRaw);
 
         return new SourceReward(xpAmount, moneyAmount, chance);
@@ -55,7 +56,7 @@ public class SourceReward {
 
     @NotNull
     public String serialize() {
-        return this.serialize(this.xpAmount) + SECTION_DELIMITER + this.serialize(this.moneyAmount) + SECTION_DELIMITER + this.chance;
+        return this.xpAmount.getMinValue() + NUMBER_DELIMITER + this.xpAmount.getMaxValue() + SECTION_DELIMITER + this.serialize(this.moneyAmount) + SECTION_DELIMITER + this.chance;
     }
 
     @NotNull
