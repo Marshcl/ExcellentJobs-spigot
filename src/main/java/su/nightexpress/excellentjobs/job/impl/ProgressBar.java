@@ -1,6 +1,7 @@
 package su.nightexpress.excellentjobs.job.impl;
 
 import org.bukkit.boss.BossBar;
+import org.bukkit.Sound;
 import org.bukkit.entity.Player;
 import org.jetbrains.annotations.NotNull;
 import su.nightexpress.excellentjobs.JobsPlugin;
@@ -101,6 +102,7 @@ public class ProgressBar {
 
     public void addXP(int amount) {
         this.setXP(this.getXP() + amount);
+        player.playSound(player.getLocation(), Sound.ENTITY_EXPERIENCE_ORB_PICKUP, 0.5f, 1.55f);
     }
 
     public void addPayment(@NotNull Currency currency, double amount) {
