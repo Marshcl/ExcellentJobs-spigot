@@ -34,6 +34,7 @@ public class GatheringGrindListener extends GrindListener<GatheringGrindTable, G
 
         event.getItemsHarvested().forEach(itemStack -> {
             this.giveXP(player, (job, table) -> table.getBlockResourceXP(itemStack));
+            player.playSound(player.getLocation(), Sound.ENTITY_EXPERIENCE_ORB_PICKUP, 0.5f, 1.55f);
         });
     }
 
@@ -50,6 +51,7 @@ public class GatheringGrindListener extends GrindListener<GatheringGrindTable, G
             ItemStack itemStack = item.getItemStack();
 
             this.giveXP(player, (job, table) -> table.getBlockResourceXP(itemStack));
+            player.playSound(player.getLocation(), Sound.ENTITY_EXPERIENCE_ORB_PICKUP, 0.5f, 1.55f);
         });
     }
 
@@ -65,6 +67,7 @@ public class GatheringGrindListener extends GrindListener<GatheringGrindTable, G
 
         event.getDrops().forEach(itemStack -> {
             this.giveXP(player, (job, table) -> table.getMobResourceXP(itemStack));
+            player.playSound(player.getLocation(), Sound.ENTITY_EXPERIENCE_ORB_PICKUP, 0.5f, 1.55f);
         });
     }
 
@@ -90,6 +93,7 @@ public class GatheringGrindListener extends GrindListener<GatheringGrindTable, G
             if (honey == null || honey.getType() != Material.HONEY_BOTTLE) return;
 
             this.giveXP(player, (job, table) -> table.getBlockResourceXP(honey));
+            player.playSound(player.getLocation(), Sound.ENTITY_EXPERIENCE_ORB_PICKUP, 0.5f, 1.55f);
         });
     }
 }
