@@ -102,7 +102,12 @@ public class ProgressBar {
 
     public void addXP(int amount) {
         this.setXP(this.getXP() + amount);
-        player.playSound(player.getLocation(), Sound.ENTITY_EXPERIENCE_ORB_PICKUP, 0.5f, 1.55f);
+
+        float[] pitches = {1.55f, 1.54f, 1.53f, 1.52f};
+        Random random = new Random();
+        float pitch = pitches[random.nextInt(pitches.length)];
+
+        player.playSound(player.getLocation(), Sound.ENTITY_EXPERIENCE_ORB_PICKUP, 0.5f, pitch);
     }
 
     public void addPayment(@NotNull Currency currency, double amount) {
