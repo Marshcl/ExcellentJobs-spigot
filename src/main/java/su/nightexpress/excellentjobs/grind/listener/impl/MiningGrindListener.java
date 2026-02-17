@@ -1,6 +1,5 @@
 package su.nightexpress.excellentjobs.grind.listener.impl;
 
-import org.bukkit.Sound;
 import org.bukkit.Material;
 import org.bukkit.block.Block;
 import org.bukkit.block.BlockFace;
