@@ -104,7 +104,7 @@ public class ProgressBar {
     public void addXP(int amount) {
         this.setXP(this.getXP() + amount);
 
-        float[] pitches = {1.55f, 1.54f, 1.53f, 1.52f};
+        float[] pitches = {1.55f, 1.53f, 1.50f};
         Random random = new Random();
         float pitch = pitches[random.nextInt(pitches.length)];
 
