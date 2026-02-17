@@ -1,5 +1,6 @@
 package su.nightexpress.excellentjobs.grind.listener;
 
+import org.bukkit.Sound;
 import org.bukkit.entity.Player;
 import org.bukkit.inventory.ItemStack;
 import org.jetbrains.annotations.NotNull;
@@ -28,5 +29,7 @@ public abstract class GrindListener<E extends GrindTable, T extends GrindType<E>
 
     protected void giveXP(@NotNull Player player, @Nullable ItemStack tool, @NotNull GrindCalculator<E> calculator) {
         this.grindManager.giveXP(player, tool, this.grindType, calculator);
+        // Play XP pickup sound to player only
+        player.playSound(player.getLocation(), Sound.ENTITY_EXPERIENCE_ORB_PICKUP, 0.5f, 1.48f);
     }
 }
