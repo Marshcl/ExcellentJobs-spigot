@@ -3,6 +3,7 @@ package su.nightexpress.excellentjobs.job.impl;
 import org.bukkit.boss.BossBar;
 import org.bukkit.Sound;
 import org.bukkit.entity.Player;
+import java.util.Random;
 import org.jetbrains.annotations.NotNull;
 import su.nightexpress.excellentjobs.JobsPlugin;
 import su.nightexpress.excellentjobs.Placeholders;
