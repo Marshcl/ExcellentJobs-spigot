@@ -63,8 +63,8 @@ public class MiningGrindListener extends GrindListener<BasicBlockGrindTable, Min
         if (isTall) {
             Block above = block.getRelative(BlockFace.UP);
             if (above.getType() == block.getType()) {
-                this.giveBlockXP(player, tool, above)
-                player.playSound(player.getLocation(), Sound.ENTITY_EXPERIENCE_ORB_PICKUP, 0.5f, 1.55f);;
+                this.giveBlockXP(player, tool, above);
+                player.playSound(player.getLocation(), Sound.ENTITY_EXPERIENCE_ORB_PICKUP, 0.5f, 1.55f);
             }
         }
     }
