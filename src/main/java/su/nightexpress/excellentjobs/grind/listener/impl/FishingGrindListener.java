@@ -1,5 +1,6 @@
 package su.nightexpress.excellentjobs.grind.listener.impl;
 
+import org.bukkit.Sound;
 import org.bukkit.entity.Entity;
 import org.bukkit.entity.Player;
 import org.bukkit.event.EventHandler;
