@@ -43,7 +43,6 @@ public class MiningGrindListener extends GrindListener<BasicBlockGrindTable, Min
         Block block = event.getBlock();
 
         this.giveBlockXP(player, tool, block);
-        player.playSound(player.getLocation(), Sound.ENTITY_EXPERIENCE_ORB_PICKUP, 0.5f, 1.55f);
     }
 
     private void giveBlockXP(@NotNull Player player, @Nullable ItemStack tool, @NotNull Block block) {
@@ -65,7 +64,6 @@ public class MiningGrindListener extends GrindListener<BasicBlockGrindTable, Min
             Block above = block.getRelative(BlockFace.UP);
             if (above.getType() == block.getType()) {
                 this.giveBlockXP(player, tool, above);
-                player.playSound(player.getLocation(), Sound.ENTITY_EXPERIENCE_ORB_PICKUP, 0.5f, 1.55f);
             }
         }
     }
