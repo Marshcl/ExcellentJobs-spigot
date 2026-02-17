@@ -1,6 +1,5 @@
 package su.nightexpress.excellentjobs.grind.listener.impl;
 
-import org.bukkit.Sound;
 import org.bukkit.entity.Entity;
 import org.bukkit.entity.Player;
 import org.bukkit.event.EventHandler;
@@ -37,6 +36,5 @@ public class FishingGrindListener extends GrindListener<FishingGrindTable, Fishi
         if (entity == null) return;
 
         this.giveXP(player, tool, (job, table) -> table.getXPForCaught(entity));
-        player.playSound(player.getLocation(), Sound.ENTITY_EXPERIENCE_ORB_PICKUP, 0.5f, 1.55f);
     }
 }
