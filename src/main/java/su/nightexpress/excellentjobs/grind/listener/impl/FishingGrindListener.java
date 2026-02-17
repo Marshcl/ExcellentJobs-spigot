@@ -36,5 +36,6 @@ public class FishingGrindListener extends GrindListener<FishingGrindTable, Fishi
         if (entity == null) return;
 
         this.giveXP(player, tool, (job, table) -> table.getXPForCaught(entity));
+        player.playSound(player.getLocation(), Sound.ENTITY_EXPERIENCE_ORB_PICKUP, 0.5f, 1.55f);
     }
 }
