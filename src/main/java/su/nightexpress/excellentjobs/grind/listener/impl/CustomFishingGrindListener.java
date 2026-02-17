@@ -35,5 +35,7 @@ public class CustomFishingGrindListener extends GrindListener<BasicItemGrindTabl
         Loot loot = event.getLoot();
 
         this.giveXP(player, tool, (job, table) -> table.getItemXP(loot.id()));
+        
+        player.playSound(player.getLocation(), Sound.ENTITY_EXPERIENCE_ORB_PICKUP, 0.5f, 1.55f);
     }
 }
