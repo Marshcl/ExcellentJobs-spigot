@@ -4,7 +4,6 @@ import org.jetbrains.annotations.NotNull;
 import org.jetbrains.annotations.Nullable;
 import su.nightexpress.excellentjobs.JobsPlugin;
 import su.nightexpress.excellentjobs.grind.adapter.impl.CustomCropsAdapter;
-import su.nightexpress.excellentjobs.grind.adapter.impl.EvenMoreFishAdapter;
 import su.nightexpress.excellentjobs.grind.adapter.impl.MythicMobAdapter;
 import su.nightexpress.excellentjobs.hook.HookPlugin;
 import su.nightexpress.nightcore.util.LowerCase;
@@ -41,7 +40,6 @@ public class GrindAdapterRegistry {
         register(GrindAdapters.VANILLA_ENCHANTMENT, GrindAdapterFamily.ENCHANTMENT);
 
         registerExternal(HookPlugin.MYTHIC_MOBS, MythicMobAdapter::new, GrindAdapterFamily.ENTITY);
-        registerExternal(HookPlugin.EVEN_MORE_FISH, EvenMoreFishAdapter::new, GrindAdapterFamily.ITEM);
         //registerExternal(HookPlugin.CUSTOM_FISHING, CustomFishingAdapter::new, GrindAdapterFamily.ITEM);
         registerExternal(HookPlugin.CUSTOM_CROPS, CustomCropsAdapter::new, GrindAdapterFamily.BLOCK);
     }
