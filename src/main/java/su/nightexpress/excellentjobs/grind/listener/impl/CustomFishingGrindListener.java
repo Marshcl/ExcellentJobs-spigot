@@ -2,7 +2,6 @@ package su.nightexpress.excellentjobs.grind.listener.impl;
 
 import net.momirealms.customfishing.api.event.FishingResultEvent;
 import net.momirealms.customfishing.api.mechanic.loot.Loot;
-import org.bukkit.Sound;
 import org.bukkit.entity.Player;
 import org.bukkit.event.EventHandler;
 import org.bukkit.event.EventPriority;
@@ -36,7 +35,5 @@ public class CustomFishingGrindListener extends GrindListener<BasicItemGrindTabl
         Loot loot = event.getLoot();
 
         this.giveXP(player, tool, (job, table) -> table.getItemXP(loot.id()));
-        
-        player.playSound(player.getLocation(), Sound.ENTITY_EXPERIENCE_ORB_PICKUP, 0.5f, 1.55f);
     }
 }
